@@ -28,7 +28,12 @@ then
   echo "you need to be root"
   exit 1
 fi
-clear
+
+aadDirName=$1
+aadClientID=$2
+
+if [ $1 == ""]
+then
 echo ""
 echo ""
 echo "starting setting up your Azure Active Directory Authentication on your ubuntu machine"
@@ -37,6 +42,8 @@ echo ""
 echo "Please provide your Azure Active Directory Name, for eg: datalinks.onmicrosoft.com and Azure clientID "
 echo "for e.g.: datalinks.onmicrosoft.com 67eddc14-395e-4834-b388-9e3f01e8d7ff"
 read aadDirName aadClientID
+fi
+
 echo "AAD dirName" + $aadDirName
 echo "AAD clientID" + $aadClientID
 
