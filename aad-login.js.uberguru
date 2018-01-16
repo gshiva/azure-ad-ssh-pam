@@ -22,7 +22,7 @@ if (username && password) {
     tenant : directory,
     authorityHostUrl : 'https://login.windows.net',
     clientId : clientid,
-    username : username,
+    username : username + '@' + directory,
     password : password
   };
 
