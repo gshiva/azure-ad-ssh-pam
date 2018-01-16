@@ -32,20 +32,21 @@ fi
 aadDirName=$1
 aadClientID=$2
 
-if [ $1 == ""]
+if [[ -z "$1" ]]
 then
 echo ""
 echo ""
 echo "starting setting up your Azure Active Directory Authentication on your ubuntu machine"
 echo ""
 echo ""
-echo "Please provide your Azure Active Directory Name, for eg: datalinks.onmicrosoft.com and Azure clientID "
-echo "for e.g.: datalinks.onmicrosoft.com 67eddc14-395e-4834-b388-9e3f01e8d7ff"
-read aadDirName aadClientID
+echo "Please provide your Azure Active Directory Name, for eg: datalinks.onmicrosoft.com "
+read aadDirName
+echo "Please provide your Azure Active Directory clientID...this is the ID of your native client you configured in AAD earlier"
+read aadClientID
 fi
 
-echo "AAD dirName" + $aadDirName
-echo "AAD clientID" + $aadClientID
+echo "AAD dirName=" $aadDirName
+echo "AAD clientID=" $aadClientID
 
 cp -f aad-login.js.orig aad-login.js
 apt-get update
