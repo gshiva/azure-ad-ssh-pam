@@ -34,16 +34,18 @@ echo ""
 echo "starting setting up your Azure Active Directory Authentication on your ubuntu machine"
 echo ""
 echo ""
-echo "Please provide your Azure Active Directory Name, for eg: datalinks.onmicrosoft.com "
-read aadDirName
-echo "Please provide your Azure Active Directory clientID...this is the ID of your native client you configured in AAD earlier"
-read aadClientID
+echo "Please provide your Azure Active Directory Name, for eg: datalinks.onmicrosoft.com and Azure clientID "
+echo "for e.g.: datalinks.onmicrosoft.com 67eddc14-395e-4834-b388-9e3f01e8d7ff"
+read aadDirName aadClientID
+echo "AAD dirName" + $aadDirName
+echo "AAD clientID" + $aadClientID
+
 cp -f aad-login.js.orig aad-login.js
 apt-get update
-apt-get install npm
-apt-get install nodejs
+apt-get install -y npm
+apt-get install -y nodejs
 apt-get --purge remove node
-if [ ! -f /usr/bin/node ] 
+if [ ! -f /usr/bin/node ]
 then
   ln -s /usr/bin/nodejs /usr/bin/node
 fi
